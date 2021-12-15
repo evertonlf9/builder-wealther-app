@@ -6,14 +6,22 @@ import { usePosition } from "use-position";
 import api from "../../services/api";
 import { useGlobal } from "../../hooks/context";
 import Weather from "../../components/Weather";
-import { IApiData, ILocation } from "../../components/Interface";
+import {
+  IApiData,
+  ICoord,
+  ILocation,
+  IWeatherForecast,
+  IForecast,
+} from "../../components/Interface";
 
 import { Container } from "./style";
 
 const Home: React.FC = () => {
   const { loading, setLoad } = useGlobal();
   const [apiData, setApiData] = useState<IApiData | undefined>();
-  const [apiDataForecast, setApiDataForecast] = useState<any>(null);
+  const [apiDataForecast, setApiDataForecast] = useState<IWeatherForecast[]>(
+    []
+  );
   const [apiDataCityLocation, setApiDataCityLocation] = useState<ILocation>(
     {} as ILocation
   );
@@ -51,7 +59,7 @@ const Home: React.FC = () => {
     [setLoad]
   );
 
-  const transformResponse = useCallback((data: any) => {
+  const transformResponse = useCallback((data: IForecast) => {
     const { list = [] } = data;
     let count = 0;
     const newList: any = [];
@@ -80,14 +88,20 @@ const Home: React.FC = () => {
   }, []);
 
   const getData = useCallback(
-    async ({ _lat, _lon }: any) => {
+    async ({
+      _lat,
+      _lon,
+    }: {
+      _lat: number | undefined;
+      _lon: number | undefined;
+    }) => {
       const apiUrlTemp = `data/2.5/weather?lat=${_lat}&lon=${_lon}&units=metric&lang=pt_BR&appid=${apiKey}`;
       const apiUrlForecast = `/data/2.5/forecast?lat=${_lat}&lon=${_lon}&units=metric&lang=pt_BR&appid=${apiKey}`;
       const apiUrlCityLocation = `geo/1.0/reverse?lat=${_lat}&lon=${_lon}&lang=pt_BR&limit=${5}&appid=${apiKey}`;
 
       setLoad(true);
       try {
-        const dataTemp: any = await api.get(apiUrlTemp);
+        const dataTemp = await api.get(apiUrlTemp);
         setApiData(dataTemp.data);
 
         const dataForecast = await api.get(apiUrlForecast);
@@ -98,7 +112,6 @@ const Home: React.FC = () => {
 
         getForecastDaily(dataTemp.data.id);
       } catch (e) {
-        console.log(e);
         setLoad(false);
       }
     },
@@ -112,7 +125,7 @@ const Home: React.FC = () => {
   }, [apiData, latitude, longitude, errorMessage]);
 
   const getWeather = useCallback(
-    (data: any) => {
+    (data: ICoord) => {
       getData({ _lon: data.lon, _lat: data.lat });
     },
     [getData]

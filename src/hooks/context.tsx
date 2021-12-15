@@ -1,11 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {
-  createContext,
-  useContext,
-  useMemo,
-  useReducer,
-  useState,
-} from "react";
+import React, { createContext, useContext, useMemo, useReducer } from "react";
 
 import reducer from "./reducer";
 
@@ -14,12 +8,12 @@ interface IGlobalContext {
   setLoad(load: boolean): void;
 }
 
-export const GlobalContext = createContext<IGlobalContext | any>(
+export const GlobalContext = createContext<IGlobalContext | undefined>(
   {} as IGlobalContext
 );
 
 interface Props {
-  children: any;
+  children: React.ReactNode;
 }
 
 const GProvider: React.FC<Props> = ({ children }) => {
@@ -36,12 +30,6 @@ const GProvider: React.FC<Props> = ({ children }) => {
       payload: load,
     });
   };
-
-  // const [loading, setLoading] = useState(false);
-
-  // const setLoad = (load: boolean): void => {
-  //   setLoading(load);
-  // };
 
   const gDataProvider = useMemo(
     () => ({

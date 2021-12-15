@@ -96,6 +96,24 @@ export interface IWeatherProps {
   onUpdateTime(): void;
 }
 
+export interface ICity {
+  coord: ICoord;
+  country: string;
+  id: number;
+  name: string;
+  population: number;
+  sunrise: number;
+  sunset: number;
+  timezone: number;
+}
+export interface IForecast {
+  city: ICity;
+  cnt: number;
+  code: string;
+  list: any;
+  message: number;
+}
+
 export interface IWeatherCard {
   day: IWeatherForecast;
 }

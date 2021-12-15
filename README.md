@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# Projeto - builder-wealther-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React version 17.0.2
 
-## Available Scripts
+Author:
+Everton Ferreira
 
-In the project directory, you can run:
+## Conteúdo
+- [Visão Geral do Projeto](#visão-geral-do-projeto)
+  - [Tecnologias](#tecnologias)
+  - [Documentação API Marvel](#documentação-api-marvel)
+- [Demonstração](#demonstracao)
+- [Informações Iniciais](#informações-iniciais)
+  - [Clonando o Repositório](#clonando-o-repositório)
+  - [Instalando as Dependências](#instalando-as-dependências)
+- [Servidor de Desenvolvimento](#servidor-de-desenvolvimento)
+- [Servidor de Produção](#servidor-de-Produção)
 
-### `yarn start`
+## Visão Geral do Projeto
+O principal objetivo do desafio é desenvolver um aplicativo que consuma a localização atual do usuário e exiba na interface o endereço atual os dados climáticos da região e um botão para atualizar os dados.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tecnologias
+- HTML5
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- CSS3
+  - [Styled-components](https://styled-components.com/)
+  - [Ant Design](https://ant.design/)
 
-### `yarn test`
+- JavaScript
+  - Typescript
+  - React
+  - Hooks
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Documentação API Openweathermap
+A documentação da API utilizada para obter os dados está disponível em: [Openweathermap](https://openweathermap.org/current).
 
-### `yarn build`
+## Informações Iniciais
+Para realizar as passos a seguir, será necessário que tenha instalado em seu computador o **git** e o **node.js**. Abaixo seguem os sites para realizar o download e efetuar a instalação:
+- [Git](https://git-scm.com/downloads)
+- [Node.js - Windows/Mac](https://nodejs.org/en/download/)
+- [Node.js - Linux](https://nodejs.org/en/download/package-manager/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Clonando o Repositório
+Primeiro é preciso que efetue a clonagem do repositório para o seu computador para assim efetuar alterações de código.
+**clone or download** e copiar a URL do respositório.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Já abrindo o bash do Git para efetuar a clonagem será necessário que digite a seguinte linha de código e informe a URL copiada anteriormente:
+git clone <url-do-repositorio>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Instalando as Dependências
+Para instalar as dependências do projeto basta abrir o **Prompt de Comando** (caso você esteja no linux, basta utilizar o terminal), acessar a pasta do repositório e inserir o seguinte comando:
+yarn
 
-### `yarn eject`
+## Renomeando arquivo .example_env
+É precissso rrenomear o qeuivo `.example_env` para `.env` e adicionar na variavel de ambiente `REACT_APP_API_KEY` a sua chave de api `Openweathermap` para o funcinamento do projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Servidor de Desenvolvimento
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Execute no **Prompt de Comando** (caso você esteja no linux, basta utilizar o terminal) `yarn start` para rodar o projeto em um servidor dev. Navegue para `http://localhost:3000/`. O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Servidor de Produção
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Execute no **Prompt de Comando** (caso você esteja no linux, basta utilizar o terminal) `yarn build` para criar o projeto. Os arquivos de construção serão armazenados no diretório `build`
