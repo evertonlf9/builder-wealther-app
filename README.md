@@ -1,5 +1,8 @@
 # Projeto - builder-wealther-app
 
+[Print1](https://github.com/evertonlf9/builder-wealther-app/blob/main/.stylelintrc/img1.png)
+[Print2](https://github.com/evertonlf9/builder-wealther-app/blob/main/.stylelintrc/img2.png)
+
 React version 17.0.2
 
 Author:
