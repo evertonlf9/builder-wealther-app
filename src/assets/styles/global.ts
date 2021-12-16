@@ -7,6 +7,10 @@ export default createGlobalStyle`
   body {
     /* overflow: hidden; */
     margin: 0;
+
+    iframe {
+      display: none;
+    }
   }
 
   #root {

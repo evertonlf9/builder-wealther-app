@@ -21,6 +21,10 @@ export const Container = styled("div")`
         #767676,
         #4f4f4f
       );
+
+      h1 {
+        color: #2df1f1;
+      }
     }
 
     .stars {

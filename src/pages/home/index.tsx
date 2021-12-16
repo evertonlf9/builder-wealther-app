@@ -32,19 +32,15 @@ const Home: React.FC = () => {
       lon: -49.0705863,
     },
   });
-  const watch = true;
-  const { latitude, longitude, errorMessage } = usePosition(watch);
+  const opt: any = {
+    enableHighAccuracy: true,
+  };
+  const { latitude, longitude, errorMessage } = usePosition(true, opt);
   const apiKey = process.env.REACT_APP_API_KEY;
-
-  if (!apiKey) {
-    throw new Error(
-      "Por favor, configure a sua variável de ambiente: REACT_APP_API_KEY"
-    );
-  }
 
   const getForecastDaily = useCallback(
     (id: number) => {
-      const apiUrl = `/data/2.5/forecast/daily?cnt=10&appid=${"093c63d1d6dd2f0f77c6f14d91a19042"}&lang=pt_BR&units=metric&id=${id}`;
+      const apiUrl = `/data/2.5/forecast/daily?cnt=10&lang=pt_BR&units=metric&id=${id}&appid=${"093c63d1d6dd2f0f77c6f14d91a19042"}`;
 
       api
         .get(apiUrl)

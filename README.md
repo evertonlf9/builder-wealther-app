@@ -27,8 +27,8 @@ O principal objetivo do desafio é desenvolver um aplicativo que consuma a local
   - [Ant Design](https://ant.design/)
 
 - JavaScript
-  - Typescript
-  - React
+  - [Typescript](https://www.typescriptlang.org/)
+  - [React](https://pt-br.reactjs.org/)
   - Hooks
 
 ### Documentação API Openweathermap

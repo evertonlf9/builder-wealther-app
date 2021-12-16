@@ -29,7 +29,7 @@ const Map: React.FC<MapProps> = ({ onClick, popupText, coord }) => {
   const tileLayerUrl = "https://{s}.tile.osm.org/{z}/{x}/{y}.png";
 
   useEffect(() => {
-    if (marker && popupText) marker.bindPopup(popupText).openPopup();
+    if (marker && popupText !== "") marker.bindPopup(popupText).openPopup();
   }, [marker, popupText]);
 
   const setMarker = useCallback((latlng: any, callback?: Function) => {

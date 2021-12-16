@@ -32,6 +32,7 @@ const Card: React.FC<ICard> = ({
           className="card__title-btn"
           onClick={onUpdateTime}
           aria-hidden="true"
+          data-testid="button-refresh"
         >
           <FaSyncAlt />
         </div>
@@ -57,9 +58,8 @@ const Card: React.FC<ICard> = ({
       <CardAnt title={<Title />} className={weather ? weather[0].main : ""}>
         <div className="card__row" style={{ margin: "0 0 1rem 0" }}>
           <strong>
-            {timestamp
-              ? toUpperCase(moment.unix(timestamp).format("dddd, MMMM Do YYYY"))
-              : ""}
+            {timestamp &&
+              toUpperCase(moment.unix(timestamp).format("dddd, MMMM Do YYYY"))}
           </strong>
         </div>
         <div className="card__row">
